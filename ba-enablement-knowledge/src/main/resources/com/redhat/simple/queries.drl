@@ -3,7 +3,15 @@ package com.redhat
 import com.redhat.*;
 
 query "Get Business"
-	
+
 	$business : Business()
-	
+
+end
+
+query "getResCode"
+	$resCode : String()
+end
+
+query "Get Reasons"
+	$theReasons : Reason()
 end

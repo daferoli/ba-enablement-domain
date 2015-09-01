@@ -1,0 +1,13 @@
+package com.redhat;
+
+rule "Filter businesses from Kansas"
+ruleflow-group "filter"
+dialect "mvel"
+
+	when
+    $business: Business(stateCode == "KS")
+	then
+    insert("filtered");
+    Reason reason = new Reason("business filtered from Kansas");
+    insert(reason);
+end
