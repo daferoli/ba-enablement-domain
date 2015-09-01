@@ -1,0 +1,92 @@
+package com.redhat;
+
+rule "Missing zipcode should result in a validation error"
+ruleflow-group "validate"
+dialect "mvel"
+
+	when
+    $business : Business(zipCode == null)
+	then
+    insert(false);
+    Reason reason = new Reason("The zipcode was empty");
+    reason.setStatusCode("validation error");
+    insert(reason);
+end
+
+rule "Missing Address Line 1 result in a validation error"
+ruleflow-group "validate"
+dialect "mvel"
+
+	when
+    $business : Business(addressLine1 == null)
+	then
+    insert(false);
+    Reason reason = new Reason("Address line 1 was empty");
+    reason.setStatusCode("validation error");
+    insert(reason);
+end
+
+rule "Missing Address Line 2 result in a validation error"
+ruleflow-group "validate"
+dialect "mvel"
+
+	when
+    $business : Business(addressLine2 == null)
+	then
+    insert(false);
+    Reason reason = new Reason("Address line 2 was empty");
+    reason.setStatusCode("validation error");
+    insert(reason);
+end
+
+rule "Missing State Code result in a validation error"
+ruleflow-group "validate"
+dialect "mvel"
+
+	when
+    $business : Business(stateCode == null)
+	then
+    insert(false);
+    Reason reason = new Reason("stateCode was empty");
+    reason.setStatusCode("validation error");
+    insert(reason);
+end
+
+rule "Missing federal Tax Id result in a validation error"
+ruleflow-group "validate"
+dialect "mvel"
+
+	when
+    $business : Business(federalTaxId == null)
+	then
+    insert(false);
+    Reason reason = new Reason("federalTaxId was empty");
+    reason.setStatusCode("validation error");
+    insert(reason);
+end
+
+rule "Missing City result in a validation error"
+ruleflow-group "validate"
+dialect "mvel"
+
+	when
+    $business : Business(city == null)
+	then
+    insert(false);
+    Reason reason = new Reason("City was empty");
+    reason.setStatusCode("validation error");
+    insert(reason);
+end
+
+rule "Missing Phone Number result in a validation error"
+ruleflow-group "validate"
+dialect "mvel"
+
+	when
+    $business : Business(phoneNumber == null)
+	then
+    insert(false);
+    Reason reason = new Reason("phoneNumber was empty");
+    reason.setStatusCode("validation error");
+    insert(reason);
+end

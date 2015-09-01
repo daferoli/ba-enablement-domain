@@ -8,8 +8,8 @@ query "Get Business"
 
 end
 
-query "getResCode"
-	$resCode : String()
+query "getSuccessRes"
+	$successRes : Boolean()
 end
 
 query "Get Reasons"

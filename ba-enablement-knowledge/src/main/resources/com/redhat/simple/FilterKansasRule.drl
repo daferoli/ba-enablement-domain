@@ -7,7 +7,18 @@ dialect "mvel"
 	when
     $business: Business(stateCode == "KS")
 	then
-    insert("filtered");
+    insert(false);
     Reason reason = new Reason("business filtered from Kansas");
+		reason.setStatusCode("filtered");
     insert(reason);
+end
+
+rule "Make all other states succeed"
+ruleflow-group "filter"
+dialect "mvel"
+
+	when
+		$business : Business(stateCode != "KS")
+	then
+		insert(true);
 end
