@@ -1,0 +1,12 @@
+package com.redhat;
+
+rule "enrich federalTaxId with zipcode"
+no-loop
+ruleflow-group "enrich"
+dialect "mvel"
+
+	when
+    $business : Business(federalTaxId != null, zipCode != null)
+	then
+    $business.setFederalTaxId($business.getFederalTaxId() + "-" + $business.getZipCode())
+end
