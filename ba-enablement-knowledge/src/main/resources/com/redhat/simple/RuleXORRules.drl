@@ -1,0 +1,12 @@
+package com.redhat;
+
+rule "set the buisness"
+ruleflow-group "rules"
+dialect "mvel"
+
+	when
+		$business : Business(zipCode == null)
+	then
+		System.out.println( "setting the zipCode" );
+		$business.setZipCode("28203");
+end
